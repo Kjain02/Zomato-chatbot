@@ -92,7 +92,7 @@ def scrape_website_sections(url):
         }
 
 # Save results to file
-def save_results(data, filename="scraping_results.json"):
+def save_results(data, filename="F:\zomato\\rag_chatbot\\scraping_results.json"):
     if os.path.exists(filename):
         with open(filename, 'r', encoding='utf-8') as f:
             existing = json.load(f)

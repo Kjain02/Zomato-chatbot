@@ -61,6 +61,6 @@ PINECONE_INDEX_NAME
             Big Chill, Delhi
             Pizza Hut, Bangalore
         # On next run, new entries are auto-processed and appended to:
-            ingestion/restaurant_info.txt
+            rag_chatbot/restaurant_info.txt
     # Already processed entries are tracked in:
         ingestion/processed_queries.txt
