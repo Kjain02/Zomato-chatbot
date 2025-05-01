@@ -18,6 +18,6 @@ while True:
     user_query = input("Ask query: ")
     if user_query.lower() in ["bye", "thank you"]:
         break
-query = "Suggest restaurants with price range less than 20?"
-response = generate_answer(query)
-print(response)
+    # query = "how are the spices level of restaurants in delhi?"
+    response = generate_answer(user_query)
+    print(response)

@@ -109,7 +109,7 @@ def main():
         print("API key not found in environment. Please set SERPAPI_API_KEY in .env")
         return
 
-    input_file = "queries.txt"
+    input_file = "F:\zomato\\rag_chatbot\\app\ingestion\queries.txt"
     if not os.path.exists(input_file):
         print(f"{input_file} not found.")
         return
@@ -145,5 +145,5 @@ def main():
     else:
         print("No new queries to process.")
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+main()

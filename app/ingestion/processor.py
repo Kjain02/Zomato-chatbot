@@ -23,5 +23,5 @@ def json_to_text(json_file, txt_file):
 
     print(f"Text data saved to {txt_file}")
 
-if __name__ == "__main__":
-    json_to_text("scraping_results.json", "restaurant_info.txt")
+# if __name__ == "__main__":
+json_to_text("scraping_results.json", "restaurant_info.txt")

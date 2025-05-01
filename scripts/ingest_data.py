@@ -1,21 +1,19 @@
+# scripts/ingest_data.py
 import subprocess
-import sys
 import os
-# Add the project root (rag_chatbot) to sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-# print("Current sys.path:", sys.path)
+import sys
 
-def run_script(script_name):
+def run_module(module_path):
     try:
-        print(f"Running {script_name}...")
-        subprocess.run(["python", script_name], check=True)
-        print(f"{script_name} completed successfully.\n")
+        print(f"Running module: {module_path}...")
+        subprocess.run([sys.executable, "-m", module_path], check=True)
+        print(f"{module_path} completed successfully.\n")
     except subprocess.CalledProcessError as e:
-        print(f"Error running {script_name}: {e}")
-
-def main():
-    run_script("app\\ingestion\\scraper.py")
-    run_script("app\\ingestion\\processor.py")  # assuming json_to_text.py is the processor
+        print(f"Failed to run {module_path}: {e}\n")
 
 if __name__ == "__main__":
-    main()
+    # Move to project root (rag-chatbot/) to ensure relative imports work
+    os.chdir(os.path.dirname(os.path.dirname(__file__)))
+
+    run_module("app.ingestion.scraper")
+    run_module("app.ingestion.processor")

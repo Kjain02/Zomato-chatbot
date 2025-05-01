@@ -1,5 +1,5 @@
 cohere==4.0.0
-pinecone-client==3.0.1
+pinecone==3.0.1
 sqlalchemy==2.0.30
 psycopg2-binary==2.9.9
 fastapi==0.110.0

@@ -11,6 +11,6 @@ def retrieve_documents(query: str, top_k: int = 5) -> list:
     response = cohere_client.embed(texts=[query], model="embed-english-v3.0", input_type="search_query")
     query_embedding = response.embeddings[0]
     result = index.query(vector=query_embedding, top_k=top_k, include_metadata=True)
-
-    documents = [match['metadata']['text'] for match in result['matches']]
+    # print(f"Query result: {result}")
+    documents = [match['metadata'].get('raw_text') or match['metadata'].get('text', '') for match in result['matches']]
     return documents
