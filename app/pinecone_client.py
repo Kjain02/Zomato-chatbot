@@ -83,7 +83,7 @@ def upsert_restaurant_data(filepath):
         # Extract restaurant name from the text
         restaurant_match = re.search(r"Restaurant Name:\s*(.*)", text)
         restaurant_name = restaurant_match.group(1).strip() if restaurant_match else "Unknown"
-        print("vv")
+        # print("vv")
         text_chunks = chunk_text(text, max_len=1000, overlap=200)
         
         for text in text_chunks:
@@ -108,8 +108,8 @@ def upsert_restaurant_data(filepath):
         index.upsert(records)
         save_existing_ids(new_ids)
         print(f"Uploaded {len(records)} records to Pinecone.")
-    else:
-        print("No valid records found.")
+    # else:
+    #     print("No valid records found.")
 
 
     # data_file_path = os.path.join("synthetic_restaurant_reviews.txt")  # Make sure this path is correct

@@ -12,13 +12,13 @@ from app.config import Config
 SERPAPI_API_KEY = Config.SERPAPI_API_KEY
 
 # Track processed queries
-def load_processed_queries(filename="processed_queries.txt"):
+def load_processed_queries(filename="F:\zomato\\rag_chatbot\\app\\ingestion\\processed_queries.txt"):
     if os.path.exists(filename):
         with open(filename, 'r', encoding='utf-8') as f:
             return set(line.strip() for line in f)
     return set()
 
-def save_processed_query(query, filename="processed_queries.txt"):
+def save_processed_query(query, filename="F:\zomato\\rag_chatbot\\app\\ingestion\\processed_queries.txt"):
     with open(filename, 'a', encoding='utf-8') as f:
         f.write(query.strip() + "\n")
 
