@@ -20,13 +20,26 @@ def generate_answer(query: str) -> str:
         "You are a helpful assistant that answers user questions about restaurants "
         "based only on provided context including restaurant name, menu, pricing, and dietary options. "
         "Do not fabricate information outside the given context."
-    )})
+            )
+        }
+    )
     # Add the user query to chat history
     chat_history.append({"role": "user", "message": query})
 
     prompt = (
-        "You are a helpful assistant that answers user questions about restaurants "
-        "based on menu, pricing, and dietary options. Do Not add additional information from out of context.\n\n"
+        "You are a helpful assistant that answers user questions about restaurants. "
+        "You have access to data including restaurant name, location, menu items with descriptions "
+        "and prices, special features (e.g., vegetarian options, spice levels, allergens), operating " 
+        "hours, and contact details\n\n Answer users’ queries clearly and informatively, using only "
+        "the information available from your knowledge base."
+        '''You can handle questions such as:\n
+        “Does The Spicy Spoon in Bangalore have gluten-free options?”
+        “What’s the price of Chicken Biryani at Royal Biryani House?”
+        “Compare the vegetarian offerings of Green Harvest and Desi Grills.”
+        “Which restaurants serve low-spice or dairy-free meals?”'''
+
+        "Always provide helpful, relevant, and concise answers. "
+        "If the requested information is not available, politely mention that it’s not in your database."
         f"Context:\n{context}\n\n"
         f"User Question: {query}\n"
         "Answer:"
